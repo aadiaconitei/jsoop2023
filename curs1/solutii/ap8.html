@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Atribute și metode statice inainte de ES6</h2>
+    <h3> Metoda 1: Pentru a defini o metodă sau proprietate statică folosim prototype</h3>
+    <h3> Metoda 2: Pentru a defini o metodă sau proprietate statică folosim numele constructorului în loc de this:
+    </h3>
+
+    <script>
+        // Metoda 1
+        function StudentNou(id, nume, varsta) {
+            this.id = id;
+            this.nume = nume;
+            this.varsta = varsta;
+
+        }
+        StudentNou.prototype.salut = function () {
+            console.log(`Buna ziua, numele meu este: ${this.nume} si am ${this.varsta} ani.`)
+        }
+        // Metoda 2
+        function Student(id, nume, varsta) {
+            this.id = id;
+            this.nume = nume;
+            this.varsta = varsta;
+            Student.salut = function () {
+                console.log(`Buna ziua, numele meu este: ${this.nume} si am ${this.varsta} ani.`)
+            }
+
+
+        }
+        const student5 = new StudentNou(5,'Paunescu Vlad', 25,7,10 );
+        const student6 = new Student(6,'Iancu Toma', 27,10,10 );
+
+    </script>
+</body>
+
+</html>

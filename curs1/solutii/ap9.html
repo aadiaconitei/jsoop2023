@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Atribute și metode statice dupa de ES6</h2>
+
+
+    <script>
+        // Metoda 1
+        class Student {
+            static grupa = 'I';
+            // metoda magica
+            constructor(id, nume, varsta) {
+                this.id = id;
+                this.nume = nume;
+                this.varsta = varsta;
+            }
+            // metoda salut nu trebuie sa fie statica
+            static salut() {
+                //Gresit  ${this.nume} in metoda statica daca proprietatea nu e statica
+                //Atentie nu putem folosi this in metode statice dacat pentru membrii declastati static
+                console.log(`Buna ziua, numele meu este: ${this.nume} si am ${this.varsta} ani si sunt in grupa ${this.grupa}.`)
+
+            }
+            static afiseazaOrar() {
+                console.log(`Orar pentru Grupa ${Student.grupa}`);// metoda 1
+                console.log(`Orar pentru Grupa ${this.grupa}`); //metoda 2
+                console.log(`Marti de la 17:30 JavaScript`);
+                console.log(`Joi de la 17:30 UI`);
+
+            }
+            examen(nota1, nota2) {
+                this.nota1 = parseInt(nota1);
+                this.nota2 = parseInt(nota2);
+                console.log(`Azi am terminat toate examenele la JavaScript.`);
+            }
+        }
+        // nu este nevoie sa instantiem clasa ca sa apelam metodele statice
+        Student.afiseazaOrar();
+        const student7 = new Student(7, 'Paunescu Vlad', 25, 7, 10);
+        // const student8 = new Student(8, 'Iancu Toma', 27, 10, 10);
+        
+        // genereaza eroare
+        student7.afiseazaOrar();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>JavaScript setter si getter cu get si set</h2>
+    <script>
+        class Person {
+            
+            constructor(name) {
+                // proprietate privata _name si suport pentru name
+                this._name = name;
+            }
+            get name() {
+                return this._name;
+            }
+            set name(newName) {
+                newName = newName.trim();
+                if (newName === '') {
+                    throw 'Error';
+                }
+                this._name = newName;
+            }
+        }
+        let person = new Person("Mihai");
+        // set 
+        person.name='Ion';
+        person.name='Dan';
+        // get
+        let mynume = person.name;
+        console.log('Numele este ', mynume);
+    </script>
+</body>
+
+</html>

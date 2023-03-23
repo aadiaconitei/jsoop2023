@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>JavaScript setter si getter cu metode definite</h2>
+    <script>
+        class Carte {
+            editura;
+            nrPagini;
+
+            constructor(titlu, autor) {
+                this.titlu = titlu;
+                this.autor = autor;
+            }
+            // Metoda 1
+            set setPret(pret) {
+                this.pret = pret;
+            }
+            get getPret() {
+                return this.pret;
+            }
+            // Metoda 2
+            setEditura(editura) {
+                this.editura = editura;
+            }
+            getEditura() {
+                return this.editura;
+            }
+            setNrPagini(nrPagini) {
+                this.nrPagini = nrPagini;
+            }
+            getNrPagini() {
+                return this.nrPagini;
+            }
+        }
+        let carte = new Carte('Ion', ' Liviu Rebreanu');
+        // Setter
+        carte.pret = 24;
+
+        // getter
+        console.log('Pretul  este ', carte.pret);
+        console.log('Pretul  este ', carte.getPret);
+        //  console.log('Pretul  este ', carte.getPret()); //Error
+
+        carte.setEditura('All');
+        console.log('La editura', carte.getEditura());
+    </script>
+</body>
+
+</html>

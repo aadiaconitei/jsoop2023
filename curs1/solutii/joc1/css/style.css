@@ -1,0 +1,140 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  background-color: rgb(7, 134, 94);
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+#message {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 630px;
+  min-height: 88px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: content-box;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#towers {
+  width: 67vw;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px auto;
+}
+#towers ul {
+  box-sizing: content-box;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  min-width: 150px;
+  padding: 0;
+  margin: 0 30px;
+  border-bottom: 7px saddlebrown solid;
+  border-radius: 20px;
+  list-style: none;
+  transition: opacity 0.1s ease-in-out;
+}
+#towers ul:before {
+  content: "";
+  background-color: saddlebrown;
+  position: absolute;
+  left: calc(50% - 0.4vw);
+  width: 7px;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  z-index: 9;
+}
+#towers ul.clickable {
+  cursor: pointer;
+}
+#towers li {
+  display: block;
+  z-index: 19;
+  height: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+#towers li[id=disc-1] {
+  width: 60px;
+}
+#towers li[id=disc-2] {
+  width: 70px;
+}
+#towers li[id=disc-3] {
+  width: 80px;
+}
+#towers li[id=disc-4] {
+  width: 90px;
+}
+#towers li[id=disc-5] {
+  width: 100px;
+}
+#towers li[id=disc-6] {
+  width: 110px;
+}
+#towers li[id=disc-7] {
+  width: 120px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  width: 67vw;
+  padding: 20px 0;
+  margin: 20px auto;
+}
+#buttons div {
+  display: block;
+  border-radius: 5px;
+  margin: 0 20px;
+  padding: 20px 30px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.5;
+}
+#buttons div.clickable {
+  cursor: pointer;
+  transition: opacity 0.1s ease-in-out;
+}
+#buttons .solve {
+  background-color: rgb(24, 72, 117);
+}
+#buttons .restart {
+  background-color: rgb(126, 77, 32);
+}
+#buttons div.clickable:hover {
+  opacity: 0.75;
+}
+#buttons div.clickable:active {
+  opacity: 1;
+}
