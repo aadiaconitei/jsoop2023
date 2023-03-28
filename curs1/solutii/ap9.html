@@ -43,10 +43,11 @@
             }
         }
         // nu este nevoie sa instantiem clasa ca sa apelam metodele statice
+        Student.salut();
         Student.afiseazaOrar();
         const student7 = new Student(7, 'Paunescu Vlad', 25, 7, 10);
         // const student8 = new Student(8, 'Iancu Toma', 27, 10, 10);
-        
+        console.log(student7);
         // genereaza eroare
         student7.afiseazaOrar();
 

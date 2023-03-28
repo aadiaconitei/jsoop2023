@@ -15,27 +15,16 @@
             this.pret = pret;
             this.stoc = stoc;
             this.dataFabricari = dataFabricarii;
-            // this.afiseaza=function(){
-            //     console.log(`Produsul ${this.nume} costa ${this.pret}`)
-            // },
-            // this.cumpara= function(){
-            //     if(this.stoc>0){
-            //         this.stoc -= 1;
-            //         console.log(`Produsul ${this.nume} a fost adaugat in cos`)
-            //     }
-            // }
-        }
-        produsNou.prototype.afiseaza=function(){
-            console.log(`Produsul ${this.nume} costa ${this.pret}`)
-        },
-        produsNou.prototype.cumpara= function(){
-            if(this.stoc>0){
-                this.stoc -= 1;
-                console.log(`Produsul ${this.nume} a fost adaugat in cos`)
+            this.afiseaza=function(){
+                console.log(`Produsul ${this.nume} costa ${this.pret}`)
+            },
+            this.cumpara= function(){
+                if(this.stoc>0){
+                    this.stoc -= 1;
+                    console.log(`Produsul ${this.nume} a fost adaugat in cos`)
+                }
             }
         }
-
-        
         const paine =  new produsNou('Paine', 8, 36,'2020-02-22');
         paine.afiseaza();
         paine.cumpara();
@@ -48,8 +37,6 @@
         console.log(paine.gramaj);
         // definim un nou produs
         const apa = new produsNou('apa plata', 3, 100, 2022-01-05);
-        console.log(apa);
-        console.log(paine);
     </script>
 </body>
 </html>

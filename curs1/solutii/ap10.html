@@ -14,13 +14,15 @@
         class Person {
             
             constructor(name) {
-                // proprietate privata _name si suport pentru name
+                // proprietate protected _name si suport pentru name
                 this._name = name;
             }
             get name() {
+                console.log('Sunt in getter')
                 return this._name;
             }
             set name(newName) {
+                console.log('Sunt in setter')
                 newName = newName.trim();
                 if (newName === '') {
                     throw 'Error';
@@ -34,7 +36,7 @@
         person.name='Dan';
         // get
         let mynume = person.name;
-        console.log('Numele este ', mynume);
+        console.log('Numele este', mynume);
     </script>
 </body>
 

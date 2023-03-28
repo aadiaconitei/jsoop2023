@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Carte {
+            titlu;
+            autor;
+            toString() {
+                console.log(`Cartea se numeste ${this.titlu} si este scrisa de ${this.autor}`); 
+	        }
+            
+        }
+        class Manual extends Carte {// Clasa derivate(copil / subclasa) 
+            nrbuc; 
+	        getComanda() {
+                console.log(`Manualul ${this.titlu} este comandata in ${this.nrbuc} exemplare`);
+                
+            } 
+        //    toString(){
+        //         console.log(`Manualul se numeste ${this.titlu} si este scrisa de ${this.autor}`); 
+	        
+        //     }
+        }
+        let mybook = new Carte();
+        mybook.titlu ='Poezii';
+        mybook.autor='George Bacovia';
+        mybook.toString();
+
+        let mybook2 = new Manual();
+        mybook2.nrbuc =10;
+        mybook2.getComanda(); //this.titlu = undefined
+        mybook2.titlu= 'Limba romana';
+        mybook2.autor='Ion Barbu';
+        mybook2.getComanda();
+        mybook2.toString();
+
+    </script>
+</body>
+
+</html>

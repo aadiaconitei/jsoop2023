@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <h1>Javascript OOP</h1>
+    <p id='total'></p>
+
+    <script>
+        // https://www.w3schools.com/js/js_es6.asp
+        //https://www.w3schools.com/js/js_const.asp
+        // Metoda 6 ECMAScript 6 (2015)
+
+        class Produs {
+            constructor(nume, pret) {
+                this.nume = nume;
+                this.pret = pret;
+            }
+        }
+        class Baututri extends Produs {
+            constructor(nume, pret, volum) {
+                super(nume, pret); // apelez constructorul parinte
+                this.volum = volum;
+            }
+        }
+        class Cos {
+            constructor() {
+                this.produse = [];
+            }
+            adaugaProdus(cantitate, produs) {
+                this.produse.push(...Array(cantitate).fill(produs));
+            }
+            calcTotal() { 
+                return this.produse.map(p => p.pret).reduce((x, y) => x + y, 0); 
+            }
+            printCosInfo() { 
+                console.log('Cumparaturi in valoare de: ' + this.calcTotal()); 
+            }
+        }
+
+
+        const paine = new Produs('Franzela feilata',  2); 
+        const faina = new Produs('Faina de grau 000',3.75); 
+        const apa = new Baututri('Dorna', 2.25,'2 litri');
+
+        const cos = new Cos(); 
+        cos.adaugaProdus(1, paine); 
+        cos.adaugaProdus(3, apa); 
+        cos.adaugaProdus(2, faina); 
+        cos.printCosInfo();
+        
+        document.getElementById('total').innerHTML = cos.calcTotal();
+
+    </script>
+</body>
+
+</html>

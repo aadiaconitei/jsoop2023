@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Animal {
+            constructor(legs) {
+                this.legs = legs;
+            }
+            walk() {
+                console.log('walking on ' + this.legs + ' legs');
+            }
+        }
+        class Bird extends Animal {
+            constructor(legs) { 
+                //daca se definsete costructorul in clasa copil nu se mai apeleaza automat 
+                //constructorul din clasa parinte 
+                //ca sa apelez constructorul din clasa parinte folosin super();
+                super(legs); // apelez constructorul din clasa parinte
+            }
+            fly() { 
+                console.log('flying'); 
+            }
+        }
+        class Pinguin extends Bird {
+            name;
+            //nu definesc constructorul se apeleaza automat constructorul din clasa parinte
+            // suprascriu metoada fly
+            fly() {
+                console.log(' penguins do not fly, they swim');
+            }
+        }
+        // let bird = new Bird(2);
+        // bird.walk();
+        // bird.fly();
+
+        let pinguin = new Pinguin();  // corect new Pinguin(2);
+        pinguin.walk();
+        pinguin.fly();
+    </script>
+</body>
+
+</html>

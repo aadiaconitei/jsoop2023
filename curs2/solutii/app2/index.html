@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>1.Ce afiseaza urmatorul code? Default Binding in JavaScript</p>
+    <code><pre>
+        function mesaj() {
+            console.log(this.name + ' are mere');
+        }
+        const name = 'Ana';
+        mesaj(); 
+    </pre></code>
+    <p>2.Ce afiseaza urmatorul code?</p>
+    <code><pre>
+        function mesaj() {
+            'use strict'; 
+            console.log(this.name + ' are mere');
+        }
+        const name = 'Ana';
+        mesaj(); 
+    </pre></code>
+    <p>3.Ce afiseaza urmatorul code? Implicit Binding in JavaScript</p>
+    <code><pre>
+        function mesaj() {
+            console.log(this.name + ' are '+ this.cantitate+' mere');
+        }
+
+        const myObj = {
+            cantitate: 22,
+            name: 'Ana',
+            mesaj:mesaj,
+            newObj: {
+                cantitate: 26,
+                name: 'Ionel',
+                mesaj:mesaj,
+            }
+        }
+
+        myObj.mesaj(); // `this` is bound to `myObj` 
+        myObj.newObj.mesaj(); // `this` is bound to `newObj` 
+    </pre></code>
+    <p>4.Ce afiseaza urmatorul code? Explicit binding in JavaScript</p>
+    <code><pre>
+        function mesaj() {
+            console.log(this.name + ' are mere');
+        }
+
+        const myObj = {
+            name: 'Ana'
+        }
+
+        mesaj.call(myObj); 
+    </pre></code>
+    <p>5.Ce afiseaza urmatorul code? Constructor Call Binding in JavaScript</p>
+    <code><pre>
+        class Person {
+            constructor(name){
+                this.name = name;
+            }
+            mesaj() {
+                console.log(this.name + ' are mere');
+            }
+        }
+        const myName = new Person('Ana');
+        myName.mesaj();
+    </pre></code>
+    <p>6.Ce afiseaza urmatorul code? call in JavaScript</p>
+    <code><pre>
+        // function constructor
+        function Car(type, fuelType) {
+            this.type = type;
+            this.fuelType = fuelType;
+        }
+        // function constructor with different contexts
+        function setBrand(brand) {
+            Car.call(this, "decapotabil", "motorina");
+            this.brand = brand;
+            console.log(`Info masina = `, this);
+        }
+        // function constructor with different contexts
+        function definePrice(price) {
+            Car.call(this, "combi", "benzina");
+            this.price = price;
+            console.log(`Info masina = `, this);
+        }
+
+        const newBrand = new setBrand('Audi');
+        const newCarPrice = new definePrice(100000);
+    </pre></code>
+    <p>6.Ce afiseaza urmatorul code? apply in JavaScript</p>
+    <code><pre>
+        // function constructor
+        function Car(type, fuelType) {
+            this.type = type;
+            this.fuelType = fuelType;
+        }
+        // function constructor with different contexts
+        function setBrand(brand) {
+            Car.apply(this, ["decapotabil", "motorina"]);
+            this.brand = brand;
+            console.log(`Info masina = `, this);
+        }
+        // function constructor with different contexts
+        function definePrice(price) {
+            Car.apply(this, ["decapotabil", "motorina"]);
+            this.price = price;
+            console.log(`Info masina = `, this);
+        }
+
+        const newBrand = new setBrand('BMW');
+        const newCarPrice = new definePrice(200000);
+    </pre></code>
+    <p>7.Ce afiseaza urmatorul code? bind in JavaScript</p>
+    <code><pre>
+        let person = {
+            name: 'Popescu Ion',
+            getName: function () {
+                console.log(this.name);
+            }
+        };
+        let f = person.getName;  //callback
+        // let f = person.getName.bind(person);
+        setTimeout(f, 1000);
+    </pre></code>
+    <p>8.Ce afiseaza urmatorul code? bind in JavaScript</p>
+    <code><pre>
+        let masina = {
+            name: 'Fiat',
+            run: function (speed) {
+                console.log(this.name + ' merge cu ' + speed + ' km/h.');
+            }
+        };
+        let avion = {
+            name: 'AirCar',
+            fly: function (speed) {
+                console.log(this.name + ' zboare cu ' + speed + ' km/h.');
+            }
+        };
+        
+        avion.fly(190);
+        let run = masina.run.bind(avion, 160);
+        run();
+    </pre></code>
+
+</body>
+
+</html>
