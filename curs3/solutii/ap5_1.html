@@ -10,10 +10,14 @@
 
 <body>
     <script>
+        class Phone extends OldPhone{
+
+        }
         class Phone {
             constructor() {
                 if (this.constructor.name === 'Phone')
                     throw new Error('Phone class is absctract')
+                console.log('sunt in constructorul parinte');
             }
 
             call(number) { }
@@ -34,6 +38,9 @@
             connectToWifi() {
                 // Implementation
             }
+        }
+        class Android extends Phone{
+            
         }
     </script>
 </body>

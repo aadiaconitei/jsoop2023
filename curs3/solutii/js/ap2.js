@@ -24,3 +24,6 @@ john.learn('es6');
 roger.learn('programming');
 john.learn('es7');
 console.log(Person.amount);
+
+const persons = [john,roger, roger2];
+console.log(persons);

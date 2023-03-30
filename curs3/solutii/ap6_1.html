@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function add(x, y=5){
+            return x + y;
+        }
+
+        // function add(x, y = 7, z = 10){
+        //     return x + y + z;
+        // }
+
+
+        let suma = add(10, 20, 20);
+        let suma2 = add(10);
+        console.log('suma este: ',suma);
+        console.log('suma este: ',suma2);
+    </script>
+</body>
+</html>
