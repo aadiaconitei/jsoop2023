@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+'use strict';
+function volumeParalelipiped (length, breadth, height) {
+  return length * breadth * height
+}
+
+function volumeCub (length) {
+  return volumeParalelipiped(length, length, length)
+}
+
+
+// Overloading happens here
+function calculateVolume (...args) {
+  if (args.length === 3){
+    return volumeParalelipiped(...args)
+  } 
+  else{
+    return volumeCub(args[0])
+  }
+    
+  
+}
+console.log('Volumul paralelipipedului este ', calculateVolume(3,4,5))
+console.log('Volumul cubului este ', calculateVolume(3))
+
+// ultima functie definita este folosita
+function displayName(fName, lName='Anonim') {
+	return `Salut ${fName} ${lName}`;
+}
+function displayName(name) {
+	return `Salut ${name}`;
+}
+
+console.log (displayName('Ana'));    
+
+
+    </script>
+</body>
+</html>

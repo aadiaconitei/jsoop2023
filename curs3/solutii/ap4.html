@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person{
+            constructor(_name, _title){
+                this.name = _name;
+                this.title = _title;
+            }
+            
+            //public
+            getName = function () {
+                return name;
+            }
+
+            //private
+            details = function () {
+                return `${name} is a ${title}.`;
+            }
+
+            //public
+            getDetails = function () {
+                return details();
+            }
+
+        }
+
+        const person = new Person('Ion', 'Web developer');
+        console.log(person.getName())
+        //Ion
+
+        person.details();
+        // TypeError: person.details is not a function
+
+        console.log(person.getDetails())
+        // Ion is a Web developer.
+    </script>
+</body>
+
+</html>

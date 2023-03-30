@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Employee {
+            constructor() {
+                if (this.constructor == Employee) {
+                    throw new Error(" Object of Abstract Class cannot be created");
+                }
+            }
+            display() {
+                throw new Error("Abstract Method has no implementation");
+            }
+        }
+
+        // clasele abstracte sunt clase care au definite metodele fara implementare
+        // si obliga clasele copil sa implementeze metodele din clasa parinte
+        class Manager extends Employee {
+            display() {
+                //super.display();
+                console.log("I am a Manager");
+            }
+        }
+        //var emp = new Employee;
+        var mang = new Manager();
+        mang.display();
+    </script>
+</body>
+
+</html>

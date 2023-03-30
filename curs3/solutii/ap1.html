@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        class User {
+            _name;//protected
+            email;
+            age;
+            #soldCard;//private
+            constructor(name, email, age) {
+                this._name = name;
+                this.email = email;
+                this.age = age;
+                this.#soldCard = 100;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            set name(newName) {
+                this._name = newName;
+            }
+
+            getAge() {
+                return `User age is ${this.age}`;
+            }
+            getSold(){
+                return this.#soldCard;
+            }
+            // private
+            #alimenteazaCard() {
+                this.#soldCard +=50;
+            }
+            getUserInfo(){
+                console.log(` Nume user  ${this.name} varsa ${this.age} sold ${this.soldCard}`);
+                console.log(` Nume user ${this._name} varsa ${this.age} sold ${this.#soldCard}`);
+           
+            }
+        }
+        class Abonat extends User{
+            services = [];
+            constructor(name, email, age, service){
+                super(name, email, age);
+                this.services.push(service);
+            }
+            getUserInfo(){
+                console.log(` Nume abonat ${this.name} varsa ${this.age} sold ${this.soldCard} `);
+                //console.log(` Nume abonat ${this._name} varsa ${this._age} sold ${this.#soldCard}`); //Error
+                console.log(` Nume abonat ${this._name} varsa ${this.age} sold ${this.getSold()}`);
+           
+            }
+        }
+
+        const user = new User('Ana', 'ana@gmail.com', 24);
+        console.log(user.name); // se apeleaza getter-ul si afiseaza Ana
+        user.name = 'Alina'; // se apleleaza automat setter-ul daca este definit
+        console.log(user.name); // Alina
+        //console.log(user.#soldCard); //Error Private field '#soldCard' must be declared in an enclosing class
+        //console.log(user.#alimenteazaCard()); //Error
+
+        user.getUserInfo();
+        const abonat = new Abonat('Ion','ion@ion.ro',30,'Internet')
+        console.log(abonat.name); // Ion 
+        abonat.name = 'Ionel';
+        console.log(abonat.name); // Ionel 
+        abonat.getUserInfo();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+class User {
+    parola;
+    constructor(id, nume, email){
+        this.id =id;
+        this.nume = nume;
+        this.email = email;
+    }
+
+    salut(){
+        console.log(` Numele meu de user este ${this.nume}`);
+    }
+    acces(){
+        console.log(`Am acces pe baza de adresa de email ${this.email}`);
+    }
+}
+
+class Admin extends User{
+    constructor(id, nume, email, parola){
+            super(id, nume, email);
+            this.parola = parola;
+            
+    }
+
+    acces(){
+        super.acces();
+        console.log(`Am acces si  pe baza de parola ${this.parola}`);
+    }
+
+}
+
+class AdminNou extends Admin{
+    
+}
+const admin1 = new Admin(123, 'Ion Popescu', 'popescu@demo.com', '12345');
+console.log(admin1)
+admin1.acces();
+admin1.salut();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Human {
+  constructor(name) {
+    this.name = name
+  }
+
+  sayHi() {
+    console.log(`Hi! My name is ${name}`)
+  }
+}
+class Developer extends Human () {
+  sayHi() {
+    console.log(`Hi! My name is ${name}. I am a developer.`)
+  }
+}
+
+class Designer extends Human () {
+  sayHi() {
+    console.log(`Hi! My name is ${name}. I am a designer.`)
+  }
+}
+const zell = new Human('Zell')
+const vincy = new Developer('Vincy')
+const tim = new Designer('Tim')
+
+zell.sayHi() // Hi! My name is Zell.
+vincy.sayHi() // Hi! My name is Vincy. I am a developer.
+tim.sayHi() // Hi! My name is Tim. I am a designer.
+    </script>
+</body>
+</html>

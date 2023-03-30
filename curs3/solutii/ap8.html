@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Sport {
+      constructor(name, numOfPlayers) {
+        this.name = name;
+        this.numOfPlayers = numOfPlayers;
+      }
+      comment() {
+        return `${this.name} is amazing and I Love it`;
+      }
+      players() {
+        return `There are ${this.numOfPlayers} number of players in ${this.name} per game.`
+      }
+    }
+
+    class Football extends Sport {
+      constructor(name, numOfPlayers, country) {
+        super(name, numOfPlayers)
+        this.country = country;
+      }
+      comment() {
+        return `${this.name} is an amazing football team, based in ${this.country}`;
+      }
+    }
+
+    const sport = new Sport('Tennis', 12);
+    console.log(sport.numOfPlayers);
+    console.log(sport.players());
+
+    // Encapsulation
+    //  Class Football does not need to know how the comment() method  or the payers() method of the sport is implemented, but can still use any of those methods. The football class doesn't need to explicitly define that method unless we want to change it.
+    const bestClub = new Football('Arsenal', 11, 'England');
+    console.log(bestClub.name);
+    console.log(bestClub.numOfPlayers);
+
+    // Inheritance
+    // THe Football class is inheriting the 'name', 'numOfPlayers' properties, the comment() method and the players() method from the Sport class.
+    const greatClub = new Football('Manchester United', 11, 'England');
+    console.log(greatClub.name);
+    console.log(greatClub.players());
+
+    // Polymorphism
+    // It is the practice of designing objects to share method(s) and to be able to override shared behaviors with specific ones. Polymorphism takes advantage of inheritance in order to make this happen. From our example, we can see that the comment() method in parent class Sport was inherited and overridden by the Football class.
+
+    const niceClub = new Football('Chelsea', 11, 'England');
+    console.log(niceClub.name);
+    console.log(niceClub.comment());
+
+  </script>
+</body>
+
+</html>

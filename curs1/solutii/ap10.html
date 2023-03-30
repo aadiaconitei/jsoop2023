@@ -24,16 +24,19 @@
             set name(newName) {
                 console.log('Sunt in setter')
                 newName = newName.trim();
-                if (newName === '') {
+                if (newName === '' || newName.length < 3) {
                     throw 'Error';
                 }
-                this._name = newName;
+                else{
+                    this._name = newName;
+                }
+                
             }
         }
         let person = new Person("Mihai");
         // set 
         person.name='Ion';
-        person.name='Dan';
+        // person.name='Dan';
         // get
         let mynume = person.name;
         console.log('Numele este', mynume);

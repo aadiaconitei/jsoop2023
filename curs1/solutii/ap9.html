@@ -16,6 +16,7 @@
         // Metoda 1
         class Student {
             static grupa = 'I';
+            parola = '12345';
             // metoda magica
             constructor(id, nume, varsta) {
                 this.id = id;
@@ -23,15 +24,15 @@
                 this.varsta = varsta;
             }
             // metoda salut nu trebuie sa fie statica
-            static salut() {
+             salut() {
                 //Gresit  ${this.nume} in metoda statica daca proprietatea nu e statica
                 //Atentie nu putem folosi this in metode statice dacat pentru membrii declastati static
                 console.log(`Buna ziua, numele meu este: ${this.nume} si am ${this.varsta} ani si sunt in grupa ${this.grupa}.`)
 
             }
             static afiseazaOrar() {
-                console.log(`Orar pentru Grupa ${Student.grupa}`);// metoda 1
-                console.log(`Orar pentru Grupa ${this.grupa}`); //metoda 2
+                console.log(`Orar pentru Grupa ${Student.grupa}`);// metoda 1 Recomandat
+                // console.log(`Orar pentru Grupa ${this.grupa}`); //metoda 2
                 console.log(`Marti de la 17:30 JavaScript`);
                 console.log(`Joi de la 17:30 UI`);
 
@@ -39,17 +40,22 @@
             examen(nota1, nota2) {
                 this.nota1 = parseInt(nota1);
                 this.nota2 = parseInt(nota2);
+                Student.afiseazaOrar();
                 console.log(`Azi am terminat toate examenele la JavaScript.`);
             }
         }
         // nu este nevoie sa instantiem clasa ca sa apelam metodele statice
-        Student.salut();
+        // Student.salut();
         Student.afiseazaOrar();
-        const student7 = new Student(7, 'Paunescu Vlad', 25, 7, 10);
-        // const student8 = new Student(8, 'Iancu Toma', 27, 10, 10);
-        console.log(student7);
-        // genereaza eroare
-        student7.afiseazaOrar();
+         const student7 = new Student(7, 'Paunescu Vlad', 25, 7, 10);
+         student7.salut();
+         const student8 = new Student(8, 'Iancu Toma', 27, 10, 10);
+         Student.grupa ='II';
+         console.log(student7);
+         console.log(student8);
+         Student.afiseazaOrar();
+        // // genereaza eroare
+        // student7.afiseazaOrar();
 
     </script>
 </body>

@@ -12,7 +12,13 @@
     <script>
         class Animal {
             constructor(legs) {
-                this.legs = legs;
+                if(typeof legs !== 'undefined'){
+                    this.legs = legs;
+                }
+                else{
+                    throw 'Error : legs must be defined'
+                }
+                    
             }
             walk() {
                 console.log('walking on ' + this.legs + ' legs');

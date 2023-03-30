@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+    * Abstract Class Fruit.
+    */
+        class Fruit {
+            constructor() {
+                if (this.constructor === Fruit) {
+                    throw new Error('Class "Fruit" cannot be instantiated')
+                }
+                this.color = 'unknown'
+            }
+
+            someMethod() {
+                throw new Error('Method "someMethod()" must be implemented.')
+            }
+        }
+
+        //const fruit = new Fruit() <-- ERROR
+
+        /**
+         * Concrete  Class Fruit.
+         */
+        class Orange extends Fruit {
+            constructor() {
+                super()
+                this.color = 'orange'
+            }
+            someMethod() {
+                console.log('Hello someMethod():', this.color)
+            }
+        }
+
+        const orange = new Orange()
+        orange.someMethod()
+
+    </script>
+</body>
+
+</html>
