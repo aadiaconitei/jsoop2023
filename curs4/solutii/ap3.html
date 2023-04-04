@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Website {
+            name; // public 
+            #count = 0; // private
+            _admin; //protected
+            static topPage = {};
+            constructor(name) {
+                this.name = name;
+                this._admin= 'administrator';
+            }
+            // public method 
+            greet() {
+                console.log(`Hello, welcome to ${this.name}`);
+            }
+            incrementVisit() {
+                // only methods of this class can access this member
+                this.#count++;
+            }
+
+            // we need a public method to get the value of the private member
+            getCount() {
+                return this.#count;
+            }
+             //  protected atunci ii definim getter dar nu setam setter
+            get admin(){
+                return this._admin;
+            }
+            info (){
+                console.log(`adminul acestui site are rol de ${this.admin}`);
+            }
+            static getTopPage(){
+                return Page.topPage;
+            }
+        }
+
+        class Page extends Website {
+            constructor(name, page) {
+                super(name)
+                this.page = page;
+            }
+            static vizitPage(page) {
+                if (!(page in  Page.topPage)) {
+                    Page.topPage[page] = 0;
+                }
+                Page.topPage[page]++;
+                
+                console.log(`The visited page is ${page}`);
+            }
+            
+           
+        }
+        let obj = new Website('https://link-academy.com/');
+        obj.greet();
+        obj.incrementVisit();
+        obj.incrementVisit();
+        console.log(obj.getCount());
+
+        let p = new Page(obj.name, 'Contact');
+        Page.vizitPage(p.page);
+        Page.vizitPage(p.page);
+        Page.vizitPage(p.page);
+        Page.topPage['HomePage']=4;
+        
+        let p2 = new Page(obj.name, 'About');
+        Page.vizitPage(p2.page);
+        Page.vizitPage(p2.page);
+        console.log(Page.getTopPage())
+        console.log(p2.info());
+        console.log(p2.admin) // good practice we can access the protected member
+        console.log(p2._admin) // this works, but this is not recommended as it violates encapsulation principles
+p2.admin='vizitator';
+    </script>
+</body>
+
+</html>

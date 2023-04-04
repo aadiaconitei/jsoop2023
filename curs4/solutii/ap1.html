@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Class Declaration
+        class Artist {
+            constructor(name, domain) {
+                this.name = name;
+                this.domain = domain;
+            }
+            sing() {
+                return `${this.name} can sing`;
+            }
+            dance() {
+                return `${this.name} can dance`;
+            }
+        }
+        let singer = new Artist("Lady Gag", "Music");
+        console.log(singer);
+
+        // Class Expression
+        const NewArtist  = class {
+            constructor(name, domain) {
+                this.name = name;
+                this.domain = domain;
+            }
+            sing() {
+                return `${this.name} can sing`;
+            }
+            dance() {
+                return `${this.name} can dance`;
+            }
+        }
+        let singer2 = new NewArtist("Dua Lipa", "Music");
+        console.log(singer2);
+    </script>
+
+</body>
+
+</html>

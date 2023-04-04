@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="This is the ToDoList."
+    />
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/28d582c70e.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>ToDoList | How To</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="content vertical">
+      <header>
+        <h1> Todo List</h1>
+        
+      </header>
+      <!-- MAIN -->
+      <main class="">
+        <!-- Start ToDO FORM (input to-do tasks) -->
+        <form class="todo-form" id="todo-form">
+          <div class="todo-form-row">
+            <div class="todo-form-column form-col-left">
+              <label for="form-task-title">Task Title</label>
+              <input
+                type="text"
+                id="form-task-title"
+                placeholder="Task Title"
+                maxlength="100"
+              />
+            </div>
+            <div class="todo-form-column form-col-right">
+              <label for="form-task-duedate">Due-Date</label>
+              <input
+                type="date"
+                id="form-task-duedate"
+                placeholder="Due Date"
+              />
+            </div>
+          </div>
+          <div class="todo-form-row">
+            <div class="todo-form-column form-col-left">
+              <label for="form-task-description">Description</label>
+              <textarea
+                id="form-task-description"
+                placeholder="Description"
+                rows="3"
+                maxlength="500"
+              ></textarea>
+            </div>
+            <div class="todo-form-column form-col-right form-button-position">
+              <button id="form-submit" class="button-add-task">Add Task</button>
+            </div>
+          </div>
+        </form>
+        <!-- END ToDO FORM -->
+        <!-- BEGIN SECTION-1 (to-do-cards) -->
+        <section class="horizontal cards-view">
+          <div class="task-container horizontal">
+            <!-- *** create dynamic code here *** -->
+          </div>
+          <!-- END task-container (first) -->
+          <!-- BEGIN right task-container: task-container-done -->
+          <div class="task-container horizontal task-container-done">
+            <!-- *** create dynamic code here *** -->
+          </div>
+          <!-- END task-container-done (second) -->
+        </section>
+        <!-- END SECTION-1 -->
+      </main>
+      <!-- FOOTER -->
+      <footer class=""></footer>
+    </div>
+    <script type="module" src="./public/app/app.js"></script>
+  </body>
+</html>

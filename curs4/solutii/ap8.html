@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(x, y) {
+            if (typeof x !== 'number') {
+                throw 'The first argument must be a number';
+            }
+            if (typeof y !== 'number') {
+                throw 'The second argument must be a number';
+            }
+
+            return x + y;
+        }
+
+        // const result = add('a', 10);
+        // console.log(result);
+
+        //Recomandat
+        try {
+            const result = add('a', 10);
+            console.log(result);
+        } catch (e) {
+            // console.log(e);
+            console.error(e);
+        }
+    </script>
+</body>
+
+</html>

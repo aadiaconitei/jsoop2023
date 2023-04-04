@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //crocodil
+        class CoadaFactory {
+            constructor(props) {
+                this.tailLength = props.tailLength;
+            }
+        };
+
+        class CorpFactory {
+            constructor(props) {
+                this.color = props.color;
+            }
+        };
+
+        class CapFactory {
+            constructor(props) {
+                this.snoutLenth = props.snoutLenth;
+            }
+        };
+        //Fabrica
+        class ReptilePartFactory {
+            constructor(type, props) {
+                if (type === "coada")
+                    return new CoadaFactory(props);
+                if (type === "corp")
+                    return new CorpFactory(props);
+                if (type === "cap")
+                    return new CapFactory(props);
+            }
+        };
+        let alligator = {};
+        let alligatorProps = {
+            coadaLength: 2.5,
+            color: "green",
+            capLenth: 1
+        };
+        
+        alligator.coada = new ReptilePartFactory("coada", alligatorProps);
+        alligator.corp = new ReptilePartFactory("corp", alligatorProps);
+        alligator.cap = new ReptilePartFactory("cap", alligatorProps);
+    </script>
+</body>
+
+</html>

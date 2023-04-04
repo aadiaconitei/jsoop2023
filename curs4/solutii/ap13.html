@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Singleton {
+            static count = 0;
+            constructor() {
+                if (!Singleton._instance) {
+                    Singleton._instance = this;
+                    Singleton.count++;
+                }
+                return Singleton._instance;
+            }
+            static getInstance() {
+
+                return this._instance;
+            }
+        }
+        const obj = new Singleton();
+        const obj3 = new Singleton();
+
+        const obj2 = Singleton.getInstance();
+        const obj4 = Singleton.getInstance();
+        console.log(obj);
+        console.log(obj2);
+        console.log(obj3);
+        console.log(obj4);
+    </script>
+</body>
+
+</html>

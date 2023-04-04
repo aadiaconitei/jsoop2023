@@ -1,0 +1,134 @@
+.task-container {
+  flex: 1 20rem;
+  height: 80vh;
+  background-color: #004643;
+  padding: 1em;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  box-shadow: 0.5em 0.5em 0.5em lightgray;
+}
+
+.task-card {
+  flex: 1 15rem;
+  max-width: 15rem;
+  margin: 0.4em;
+  padding: 0.75em;
+  box-shadow: 0.5em 0.5em 0.5em black;
+}
+
+.task-todo {
+  background-color: #f0544f;
+}
+
+.task-done {
+  background-color: #60992d;
+}
+
+.task-content {
+  width: 99%;
+  min-height: 20vh;
+  padding: 0.75em;
+  background-color: white;
+  border-radius: 0.75em;
+  justify-content: space-between;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.cards-view h2,
+.cards-view p {
+  max-width: 98%;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.cards-view p {
+  font-size: 1.25em;
+}
+
+.task-duedate {
+  text-align: center;
+}
+
+.task-controls {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.1rem;
+  border-radius: 0.5em;
+  justify-content: space-around;
+  align-content: center;
+  color: white;
+}
+
+.task-controls-todo {
+  background-color: rgba(240, 84, 79, 0.3);
+}
+
+.task-controls-done {
+  background-color: rgba(96, 153, 45, 0.3);
+}
+.task-delete,
+.task-edit,
+.task-complete {
+  display: flex;
+  flex: 1;
+  max-width: 27%;
+  height: 2.2rem;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  color: white;
+  justify-content: center;
+}
+
+.task-delete {
+  background-color: red;
+}
+
+.task-edit {
+  background-color: blue;
+}
+
+.task-complete {
+  background-color: #60992d;
+}
+
+.task-uncomplete {
+  background-color: #f0544f;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  color: white;
+}
+
+/* Control option for editing task-Card when .enableEditing is toggling in function 'editTodoCard' */
+
+/* no input-fields available */
+.task-card textarea,
+.task-card input[type="text"],
+.task-card input[type="date"] {
+  display: none;
+}
+
+/* .enableEditing is active: --> show input-fields for editing */
+.task-card.enableEditing h2,
+.task-card.enableEditing p {
+  display: none;
+}
+.task-card.enableEditing textarea,
+.task-card.enableEditing input[type="text"],
+.task-card.enableEditing input[type="date"] {
+  display: block;
+  max-width: 98%;
+}
+
+/* as long as task is inside task-container-done, edit-icon is not available */
+.task-container-done .task-edit {
+  display: none;
+}
+
+/* unique id for local storage */
+.task-uid {
+  text-align: center;
+  padding: 0.5rem 0rem 0rem;
+  color: rgba(78, 75, 75, 0.5);
+}

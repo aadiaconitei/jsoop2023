@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Folosirea instrucțiunii JavaScript throw pentru a arunca o excepție definită de utilizator</h1>
+    <script>
+        class NumberError extends Error {
+            constructor(value) {
+                super(`"${value}" is not a valid number`);
+                this.name = 'InvalidNumber';
+            }
+        }
+        function add(x, y) {
+            if (typeof x !== 'number') {
+                throw new NumberError(x);
+            }
+            if (typeof y !== 'number') {
+                throw new NumberError(y);
+            }
+
+            return x + y;
+        }
+        try {
+            const result = add('a', 10);
+            console.log(result);
+        } catch (e) {
+            console.log(e.name, ':', e.message);
+        }
+    </script>
+</body>
+
+</html>

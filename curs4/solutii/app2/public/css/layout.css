@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+html {
+  font-size: 62.5%; /* sb-add */
+}
+body {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5em;
+}
+
+header {
+  padding: 0 2em 1em;
+  text-align: left;
+  font-size: 2em;
+  text-shadow: 2px 2px 6px gray;
+}
+
+a {
+  text-decoration: none;
+}
+
+.content {
+  width: 70%;
+  max-width: 1200px;
+}
+
+.horizontal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.cards-view {
+  justify-content: space-between;
+  margin-top: 3em;
+  flex: 1 100%;
+  columns: 2;
+  gap: 1rem;
+}
