@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Observable {
+            constructor() {
+                this.observers = [];
+            }
+
+            subscribe(func) {
+                this.observers.push(func);
+            }
+
+            unsubscribe(func) {
+                this.observers = this.observers.filter(observer => observer !== func);
+            }
+
+            notify(data) {
+                this.observers.forEach(observer => observer(data));
+                
+            }
+            fire(o, thisObj) {
+                var scope = thisObj || window;
+                this.observers.forEach(function (item) {
+                    item.call(scope, o);
+                });
+            }
+        }
+        
+
+            var clickHandler = function (item) {
+                console.log("fired: " + item);
+            };
+
+            var click = new Observable();
+
+            click.subscribe(clickHandler);
+            click.fire('event #1');
+            click.unsubscribe(clickHandler);
+            click.fire('event #2');
+            click.subscribe(clickHandler);
+            click.fire('event #3');
+        
+    </script>
+</body>
+
+</html>

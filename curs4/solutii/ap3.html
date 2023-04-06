@@ -15,6 +15,7 @@
             #count = 0; // private
             _admin; //protected
             static topPage = {};
+
             constructor(name) {
                 this.name = name;
                 this._admin= 'administrator';
@@ -30,10 +31,12 @@
 
             // we need a public method to get the value of the private member
             getCount() {
+
                 return this.#count;
             }
              //  protected atunci ii definim getter dar nu setam setter
             get admin(){
+                console.log('sunt in getter admin');
                 return this._admin;
             }
             info (){
@@ -64,22 +67,30 @@
         obj.greet();
         obj.incrementVisit();
         obj.incrementVisit();
-        console.log(obj.getCount());
+         console.log(obj.getCount());
+        // console.log(obj.#count); // error
 
         let p = new Page(obj.name, 'Contact');
+        console.log(p);
         Page.vizitPage(p.page);
         Page.vizitPage(p.page);
         Page.vizitPage(p.page);
+      
+
+
         Page.topPage['HomePage']=4;
+        console.log(Page.topPage);
         
         let p2 = new Page(obj.name, 'About');
         Page.vizitPage(p2.page);
         Page.vizitPage(p2.page);
         console.log(Page.getTopPage())
+        console.log(Page.topPage);
         console.log(p2.info());
-        console.log(p2.admin) // good practice we can access the protected member
+ console.log(p2.admin) // good practice we can access the protected member
         console.log(p2._admin) // this works, but this is not recommended as it violates encapsulation principles
-p2.admin='vizitator';
+ p2._admin='vizitator';
+ console.log(p2.admin)
     </script>
 </body>
 

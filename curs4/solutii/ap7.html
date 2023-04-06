@@ -14,7 +14,7 @@
         let x = parseInt(prompt("Introduce-ti un numar mai mic decat 5"))
         try {
             y = x - 10
-            if (y >= 5) throw new Error(" y este mai mare 5")
+            if (y >= 5) throw " y este mai mare 5"
             else alert(y)
         } catch (e) {
             alert(e)

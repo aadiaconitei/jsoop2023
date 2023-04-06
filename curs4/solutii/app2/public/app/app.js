@@ -1,5 +1,5 @@
 // # C L A S S E S
-import Task from "./models/Task.js";
+import {Task} from "./models/Task.js";
 import TaskList from "./models/TaskList.js";
 import TaskStorage from "./models/TaskStorage.js";
 

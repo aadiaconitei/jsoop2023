@@ -46,19 +46,27 @@
         }
 
         // Error Type 1.
-        //let bar = new Abstract(); // Throws because abstract class can not be constructed.
+        // let bar = new Abstract(); // Throws because abstract class can not be constructed.
 
         // Error Type 2.
         //Abstract.foo(); // Throws because static abstract methods can not be called.
 
-        class ChildA extends Abstract { }
+        class ChildA extends Abstract {
+            // constructor(name){
+            //     super();
+            //     this.name = name;
+            // }
+            //  foo(){
+
+            //  }
+         }
 
         // Error Type 3.
         //ChildA.foo(); // Throws because ChildA does not implement static abstract method foo.
 
         // Error Type 4.
         //let bar = new ChildA(); // Throws because ChildA does not implement abstract method foo.
-
+        //  bar.foo();
         class ChildB extends Abstract {
             static foo() {
                 // Calls Abstract.foo();

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Add to cart button widget can be added anywhere in your page-->
+    <img src="https://i.ibb.co/9wjtQgr/syed-hussaini-4w1-s-JP9g4-I-unsplash.jpg" alt="Trulli" width="400" height="400">
+    <button onclick="banana()">Add To Cart</button>
+    <img src="https://i.ibb.co/FYyBHTg/shelley-pauls-I58f47-LRQYM-unsplash.jpg" 
+      alt="shelley-pauls-I58f47-LRQYM-unsplash" width="400" height="400"></a>
+    <button onclick="apple()">Add To Cart</button>
+    <img src="https://i.ibb.co/hBgwB0v/vino-li-OKT6-Ce9fwq-I-unsplash.jpg" 
+      alt="vino-li-OKT6-Ce9fwq-I-unsplash" width="400" height="400"></a>
+    <button onclick="pineapple()">Add To Cart</button>
+    <script>
+      // class Model, which is the Application's Model component
+      class Model {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+        getPrice() {
+          return this.price;
+        }
+        getName() {
+          return this.name;
+        }
+      }
+      
+      // class View, which is the Application's View component
+      class View {
+        constructor() {
+          this.controller = null;
+        }
+        registerWith(controller) {
+          this.controller = controller;
+          this.controller.addView(this);
+        }
+      
+        cartItem(name, price) {
+          console.log(`Name: ${name}\nPrice: ${price}`);
+        }
+        addToCart(name, price) {
+          this.controller.addToCart(name, price);
+        }
+      }
+      
+      // class Controller, which is the Application's Controller component
+      class Controller {
+        constructor() {
+          this.model = null;
+          this.view = null;
+          this.cartList = [];
+        }
+      
+        addView(view) {
+          this.view = view;
+        }
+        addModel(model) {
+          this.model = model;
+        }
+      
+        updateCart() {
+          console.log("List of Cart Items:");
+      
+          for (let i in this.cartList)
+            this.view.cartItem(
+              this.cartList[i].getName(),
+              this.cartList[i].getPrice()
+            );
+          console.log("\n");
+        }
+        addToCart(name, price) {
+          this.cartList.push(new Model(name, price, this.cartList.length));
+          this.updateCart();
+        }
+      }
+      var view = new View();
+      var controller = new Controller();
+      view.registerWith(controller);
+      
+      
+      //Add widgets in any page of your choice
+      function apple() {
+      console.log("Adding Apples to cart...");
+      view.addToCart("Apples", "$40");
+      }
+      function banana() {
+      console.log("Adding Bananas to cart...");
+      view.addToCart("Banana", "$55");
+      }
+      function pineapple() {
+      console.log("Adding Pineapples to cart...");
+      view.addToCart("Pineapple", "$50");
+      }
+    </script>
+  </body>
+</html>

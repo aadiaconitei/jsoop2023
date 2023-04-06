@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class ChatRoom {
+            //Middleware Pattern 
+            logMessage(user, message) {
+                const sender = user.getName();
+                console.log(`${new Date().toLocaleString()} [${sender}]: ${message}`);
+            }
+        }
+
+        class User {
+            constructor(name, chatroom) {
+                this.name = name;
+                this.chatroom = chatroom;
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            send(message) {
+                this.chatroom.logMessage(this, message);
+            }
+        }
+
+        const chatroom = new ChatRoom();
+
+        const user1 = new User("John Doe", chatroom);
+        const user2 = new User("Jane Doe", chatroom);
+
+        user1.send("Hi there!");
+        user2.send("Hey!");
+
+    </script>
+</body>
+
+</html>

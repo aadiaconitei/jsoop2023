@@ -2,7 +2,7 @@
 // --> instantiate a task-object every time a task is created
 //     (class not needed until a task has been added)
 
-export default class Task {
+export  class Task {
   // instantiate a task and pass params
   constructor(title, description, dueDate) {
     // assign params to properties of that object

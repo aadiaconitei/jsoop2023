@@ -11,58 +11,70 @@
 <body>
     <script>
         // 1.
-        function message(phrase) {
-            return class {
-                seyHi() {
-                    console.log(phrase);
-                }
-            }
-        }
-        class Hello extends message('Hello World!') {
-            seyHi() {
-                super.seyHi()
-                console.log('Peace to the world!');
-            }
-        }
-        let myObj = new Hello();
-        myObj.seyHi();
+        // function message(phrase) {
+        //     return class {
+        //         seyHi() {
+        //             console.log(phrase);
+        //         }
+        //     }
+        // }
+        // class Hello extends message('Hello World!') {
+        //     seyHi() {
+        //          super.seyHi()
+        //         console.log('Peace to the world!');
+        //     }
+        // }
+        // let myObj = new Hello();
+        // myObj.seyHi();
         // 2.
-        class Artist {
-            constructor(name, domain) {
-                this.name = name;
-                this.domain = domain;
-            }
-            sing() {
-                return `${this.name} can sing`;
-            }
-            dance() {
-                return `${this.name} can dance`;
-            }
-        }
-        class Actor extends Artist {
-            constructor(name, domain,) {
-                super(name, domain);
+        // class Artist {
+        //     constructor(name, domain) {
+        //         this.name = name;
+        //         this.domain = domain;
+        //     }
+        //     sing() {
+        //         return `${this.name} can sing`;
+        //     }
+        //     dance() {
+        //         return `${this.name} can dance`;
+        //     }
+        // }
+        // class Actor extends Artist {
+        //     constructor(name, domain,) {
+        //         super(name, domain);
 
-            }
-        }
+        //     }
+        //     toString(){
+        //         return ` ${this.name} ${this.domain}`;
+        //     }
+        // }
 
-        let singer = new Artist("Lady Gag", "Music");
-        console.log(singer);
-        let actor = new Actor('Will Smith', 'Movie');
+        // let singer = new Artist("Lady Gag", "Music");
+        // console.log(singer);
+        // console.log(singer.dance());
+        // console.log(singer.sing());
+        // let actor = new Actor('Will Smith', 'Movie');
+        // console.log(actor);
+        // console.log(actor.sing());
+        // console.log(actor.toString());
 
-        // 3.
+        // // 3.
         class PowerArray extends Array {
             isEmpty() {
                 return this.length === 0;
             }
         }
 
-        let arr = new PowerArray(1, 2, 5, 10, 50);
+        let arr = new PowerArray(1, 2, 5, 10,100, 50);
         console.log(arr.isEmpty()); // false
 
         let filteredArr = arr.filter(item => item >= 10);
         console.log(filteredArr); // 10, 50
         console.log(filteredArr.isEmpty()); // false
+        console.log(arr.sort( (a,b)=>{
+                        return a-b
+                    }
+                    ));
     </script>
 </body>
 

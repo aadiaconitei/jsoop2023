@@ -22,6 +22,7 @@ document
     // Input User Validation
     if (name === "" || price === "" || year === "") {
       ui.showMessage("Please Insert data in all fields", "danger");
+      return false;
     }
 
     // Save Product
