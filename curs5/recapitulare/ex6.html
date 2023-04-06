@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> 6. Creați o clasă numită Person care acceptă nume:string 
+        și vârsta:number.
+        Clasa Person ar trebui să aibă o metodă numită describe care returnează 
+        un string cu următoarea sintaxă: „nume, vârstă ani”. 
+        Exemplu: "Dan are 19 ani".</p>
+    <code>
+        <pre>
+            var dan = new Person("Dan", 19);
+            var ion = new Person("Ion", 24);
+            console.log(dan.describe());
+            console.log(ion.describe());
+        </pre>
+    </code>
+
+    <script>
+        class Person{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            describe(){
+                return `${this.name} are ${this.age} ani`;
+            }
+        }
+        var dan = new Person("Dan", 19);
+        var ion = new Person("Ion", 24);
+        console.log(dan.describe());
+        console.log(ion.describe());
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 13.Ce afiseaza urmatorul code?</p>
+    <code>
+        <pre>
+            class Shape {
+                color;
+                setColor(color){
+                    this.color = color;
+                }
+                getColor() {
+                    return this.color;
+                }
+            }
+    
+            class Rectangle extends Shape {
+                constructor( width, height) {
+                    this.width = width;
+                    this.height = height;
+                }
+    
+                getArea() {
+                    return this.width * this.height;
+                }
+            }
+    
+            let rectangle = new Rectangle( 5, 8);
+            console.log("Area:" + rectangle.getArea());
+            
+        </pre>
+    </code>
+
+
+    <script>
+        class Shape {
+            color;
+            setColor(color){
+                this.color = color;
+            }
+
+            getColor() {
+                return this.color;
+            }
+        }
+
+        class Rectangle extends Shape {
+            constructor( width, height) {
+                super();
+                this.width = width;
+                this.height = height;
+            }
+
+            getArea() {
+                return this.width * this.height;
+            }
+        }
+
+        let rectangle = new Rectangle( 5, 8);
+        console.log("Area:" + rectangle.getArea());
+       // console.log("Color:" + rectangle.getColor());
+       // console.log("toString:" + rectangle.toString());
+
+    //    Daca clasa parinte  NU are constructor si clasa copil are constructor 
+    //    constructorul din clasa copil trebuie sa apeleze constructorul din clasa parinte
+    //  Daca in clasa parinte nu definim noi un constructor , automat JavaScript  defineste un constructor
+    </script>
+</body>
+
+</html>

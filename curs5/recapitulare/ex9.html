@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p> 9. Ce afiseaza urmatorul code?</p>
+    <code>
+        <pre>
+            class User {
+                constructor(name, age) {
+                    this._name = name;
+                    this._age = age;
+                }
+                get name() {
+                    if (userType === "Admin") {
+                        return this._name;
+                    } else {
+                        return "You are not authorized to view this information";
+                    }
+                }
+            }
+            let userType = "Editor";
+            const person = new User("Ion Popescu", 24);
+            console.log(person.name);
+        </pre>
+    </code>
+
+
+    <script>
+        class User {
+            constructor(name, age) {
+                this._name = name;
+                this._age = age;
+            }
+            get name() {
+                if (userType === "Admin") {
+                    return this._name;
+                } else {
+                    return "You are not authorized to view this information";
+                }
+            }
+        }
+        let userType = "Admin";
+        const person = new User("Ion Popescu", 24);
+        console.log(person.name);
+    </script>
+</body>
+
+</html>

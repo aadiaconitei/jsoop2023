@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Shape {
+            constructor(color) {
+                this.color = color;
+            }
+            setColor(color) {
+                this.color = color;
+            }
+            getColor() {
+                this.#deseneaza();
+                return this.color;
+              
+            }
+            #deseneaza(){
+                console.log(` Voi desena o figura geometrica cu ${this.color}`);
+            }
+        }
+        class Rectangle extends Shape {
+            constructor(color, width, height) {
+                super(color);
+                this.width = width;
+                this.height = height;
+            }
+            getArea() {
+                return this.width * this.height;
+            }
+            getColor(){
+                super.getColor();
+                // super.#deseneaza();
+            }
+
+        }
+
+        const obj = new Rectangle('red', 20, 40);
+        obj.getColor();
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 11.Ce afiseaza urmatorul code?</p>
+    <code>
+        <pre>
+            class Base {
+                baseField = 10;
+                static baseStaticField = 90;
+            }
+              
+            class Extended extends Base {
+                extendedField = super.baseField;
+                extendedStaticField = super.baseStaticField; 
+            }
+            let obj = new Extended();
+            console.log(obj.extendedField);
+            console.log(Extended.extendedStaticField);
+        </pre>
+    </code>
+
+    <script>
+        class Base {
+                baseField = 10;
+                static baseStaticField = 90;
+            }
+              
+        class Extended extends Base {
+            extendedField = super.baseField;
+            static extendedStaticField = super.baseStaticField; 
+        }
+        let obj = new Extended();
+        console.log(obj.baseField);
+        console.log(obj.extendedField); //undefined
+        console.log(Extended.extendedStaticField);
+        // NU puteți folosi super pentru a accesa câmpul de instanță al unei superclase.
+    </script>
+
+</body>
+
+</html>

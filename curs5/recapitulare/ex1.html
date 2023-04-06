@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> 1. Ce afiseaza urmatorul code?</p>
+    <code>
+        <pre>
+            const user = {
+                fname: 'Ion',
+                lname: 'Popescu'
+            };
+            const copy1  = user;  
+            const copy2 = Object.assign({}, user);
+            copy1.fname ='Dan';
+            copy2.lname ='Ana';
+            
+            console.log('original:', user);
+            console.log('copia 1:', copy1);
+            console.log('copia2:', copy2);
+        </pre>
+    </code>
+    <script>
+        const user = {
+                fname: 'Ion',
+            lname: 'Popescu'
+        };
+        
+        const copy1  = user;  
+       
+        copy1.fname ='Dan';
+        const copy2 = Object.assign({}, user);
+        copy2.lname ='Ana';
+        
+        console.log('original:', user);
+        console.log('copia 1:', copy1);
+        console.log('copia2:', copy2);
+    </script>
+</body>
+</html>

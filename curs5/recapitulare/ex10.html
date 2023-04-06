@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 10. Creați o clasă numită Car cu proprietatile:
+        model, #fuelLevel =0, #isEngineOn=false si metodele startEngine,
+        #checkFuel si drive.
+    </p>
+    <code>
+        <pre>
+            const car1 = new Car();
+            car1.model = 'BMW';
+            car1.startEngine();
+            car1.drive();
+        </pre>
+    </code>
+
+    <script>
+        class Car {
+            // Proprietate publică
+            model = '';
+
+            // Proprietate protejată
+            #fuelLevel = 0;
+
+            // Proprietate privată
+            #isEngineOn = false;
+
+            // Metodă publică
+            startEngine() {
+                this.#isEngineOn = true;
+                console.log('Engine started');
+            }
+
+            // Metodă protejată
+            #checkFuel() {
+                if (this.#fuelLevel <= 0) {
+                    console.log('Fuel level too low');
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            // Metodă publică
+            drive() {
+                if (this.#isEngineOn && this.#checkFuel()) {
+                    console.log(`Driving ${this.model}`);
+                    this.#fuelLevel--;
+                } else {
+                    console.log('Cannot drive');
+                }
+            }
+        }
+
+        const car1 = new Car();
+        car1.model = 'BMW';
+        car1.startEngine();
+        car1.drive();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 2.Ce afiseaza urmatorul code?</p>
+    <code>
+        <pre>
+            const user = {
+                fname: 'Ion',
+                lname: 'Popescu',
+                adresa:{
+                    judet:'Brasov',
+                    oras:'Codlea'
+                }
+            };
+             
+            
+            const copy1 ={... user};
+            copy1.fname ='Dan';
+            copy1.adresa.oras = 'Rasnov' 
+            
+            console.log('original:', user);
+            console.log('copia 1:', copy1);
+            
+        </pre>
+    </code>
+    <script>
+        const user = {
+            fname: 'Ion',
+            lname: 'Popescu',
+            adresa: {
+                judet: 'Brasov',
+                oras: 'Codlea'
+            }
+        };
+
+         //const copy1 = Object.assign({}, user);
+        // const copy1 = { ...user };
+        
+        // solutia corecta
+         let copy1 = JSON.parse(JSON.stringify(user));
+        copy1.fname = 'Dan';
+        copy1.adresa.oras = 'Rasnov'
+
+        console.log('original:', user);
+        console.log('copia 1:', copy1);
+       
+        // Motivul pentru modificarea obiectului original este că atunci când 
+        // folosim operatorul Object.assign sau { ...user }, acesta face doar o 
+        // copie superficială, ceea ce înseamnă că în timpul creării unei copii 
+        // a obiectului, proprietățile de la primul nivel sunt copiate și, 
+        // dacă există proprietăți imbricate, atunci doar referința lor este 
+        // copiată, ceea ce înseamnă că referința copiată se referă în continuare
+        //  la locul original în care este stocat obiectul.
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 4. Ce afiseaza urmatorul code?</p>
+    <code>
+        <pre>
+            const person = {
+                name: "Dan",
+                age: 30,
+                job: "Software Developer",
+                country: "Nigeria",
+                car: "Ford",
+                description: function () {
+                  return `${this.name} - ${this.age} - ${this.job.role} - ${this.country.name} - ${this.car.name}`;
+                },
+              };
+              console.log(person.description);
+
+            // undefined
+            // function description()
+            // error 
+            // Dan - 30 - Software Developer - Nigeria - Ford
+           
+        </pre>
+    </code>
+
+    <script>
+        const person = {
+            name: "Dan",
+            age: 30,
+            job: "Software Developer",
+            country: "Nigeria",
+            car: "Ford",
+            description: function () {
+                return `${this.name} - ${this.age} - ${this.job} -  ${this.country} - ${this.car}`;
+            },
+        };
+        console.log(person.description());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 7. Creați o clasă numită Vehicle cu urmatoarele proprietati si 
+        metode astfel incat sa puteti rula acest code:</p>
+    <code>
+        <pre>
+            const vehicle1 = new Vehicle("car", "red", "Ford", 2015);
+            const vehicle2 = new Vehicle("motorbike", "blue", "Honda", 2018);
+            console.log(vehicle1.info());
+            console.log(vehicle1.start());
+            console.log(vehicle1.stop());
+            console.log(vehicle1.pickUpPassengers());
+            console.log(vehicle1.dropOffPassengers());
+        </pre>
+    </code>
+
+    <script>
+        class Vehicle {
+            constructor(type, color, brand, year) {
+                this._type = type;
+                this._color = color;
+                this._brand = brand;
+                this._year = year;
+            }
+           
+            
+
+            start() {
+                return "Vehicle started";
+            }
+            stop() {
+                return "Vehicle stopped";
+            }
+            pickUpPassengers() {
+                return "Passengers picked up";
+            }
+            dropOffPassengers() {
+                return "Passengers dropped off";
+            }
+            info(){
+                return `Vehicle info ${this.type} ${this.brand} ${this.year} ${this.color}`;
+            }
+
+
+            set type(value){
+                console.log(' sunt in setter type')
+                this._type = value;
+            }
+
+            get type(){
+                console.log(' sunt in getter type')
+                return this._type;
+            }
+        }
+        const vehicle1 = new Vehicle("car", "red", "Ford", 2015);
+        const vehicle2 = new Vehicle("motorbike", "blue", "Honda", 2018);
+        vehicle1.type;
+        vehicle1.type = 'Bicicleta'
+        console.log(vehicle1.info());
+        console.log(vehicle1.start());
+        console.log(vehicle2.pickUpPassengers()); 
+    </script>
+</body>
+
+</html>

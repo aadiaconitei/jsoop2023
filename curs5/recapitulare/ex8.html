@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 8. Creați o clasă numită Vehicle cu proprietatile:
+        type, color, brand, year
+        apoi faceti getter si setter pentru fiecare proprietate.
+    </p>
+    <code>
+        <pre>
+            const vehicle1 = new Vehicle("car", "red", "Ford", 2015);
+            console.log(vehicle1);
+            
+            vehicle1.type = 'motorbike';
+            vehicle1.color = 'blue';
+            vehicle1.brand = 'Honda';
+            vehicle1.year = '2018';
+            console.log(vehicle1.type);
+            console.log(vehicle1.color);
+            console.log(vehicle1.brand);
+            console.log(vehicle1.year);
+            console.log(vehicle1);
+        </pre>
+    </code>
+
+    <script>
+        class Vehicle {
+            _type;
+            _color;
+            _brand;
+            _year;
+            constructor(type, color, brand, year) {
+                this._type = type;
+                this._color = color;
+                this._brand = brand;
+                this._year = year;
+            }
+            get type() { return this._type; }
+            set type(value) { this._type = value; }
+
+            get color() { return this._color; }
+            set color(value) { this._color = value; }
+
+            get brand() { return this._brand; }
+            set brand(value) { this._brand = value; }
+
+            get year() { return this._year; }
+            set year(value) { this._year = value; }
+
+        }
+        const vehicle1 = new Vehicle("car", "red", "Ford", 2015);
+        console.log(vehicle1);
+
+        vehicle1.type = 'motorbike';
+        vehicle1.color = 'blue';
+        vehicle1.brand = 'Honda';
+        vehicle1.year = '2018';
+        console.log(vehicle1.type);
+        console.log(vehicle1.color);
+        console.log(vehicle1.brand);
+        console.log(vehicle1.year);
+        console.log(vehicle1);
+
+    </script>
+</body>
+
+</html>
