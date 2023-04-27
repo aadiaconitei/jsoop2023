@@ -74,12 +74,12 @@ const userRoutes = (app, fs) => {
 
 
     // DELETE
-    app.delete('/users/:id', (req, res) => {
+    app.delete('/users/:idddd', (req, res) => {
 
         readFile(data => {
 
             // delete the user
-            const userId = req.params["id"];
+            const userId = req.params["idddd"];
             delete data[userId];
 
             writeFile(JSON.stringify(data, null, 2), () => {

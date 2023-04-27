@@ -15,8 +15,8 @@
 const express = require('express')
 const app = express()
 // Parses the body for POST, PUT, DELETE, etc.
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 // GET
 app.get('/', (req, res) => res.send('Hello World!'))
 

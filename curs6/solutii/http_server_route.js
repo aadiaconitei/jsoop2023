@@ -2,8 +2,8 @@
 // folosim  require ('nume_modul');
 
 const http = require('http');  // includem modulul http
-const data = require("./crud/server/data/users.json");
-const port = 3001;  // setam un port pentru server ( Recomandate: diferit de 80, 443, 8080)
+const data = require("./user.json");
+const port = 3003;  // setam un port pentru server ( Recomandate: diferit de 80, 443, 8080)
 const host = 'localhost';
 
 const routes = {

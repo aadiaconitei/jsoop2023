@@ -39,6 +39,8 @@ function showData(posts) {
         <li>ID: ${posts[item].id}</li>
         <li>name: ${posts[item].name}</li>
         <li>profession: ${posts[item].profession}</li>
+        <li>Edit</li>
+        <li>Sterge</li>
         </ul>
         `
     })
@@ -60,7 +62,7 @@ $(document).ready(function ($) {
 
         let ajxReq = $.ajax({
             type: 'DELETE',
-            url: 'http://localhost:3001/users/1652778027417'
+            url: 'http://localhost:3001/users/1682441953563'
         });
 
         ajxReq.success(function (data, status, jqXhr) {
@@ -79,9 +81,9 @@ $(document).ready(function ($) {
         let ajxReq = $.ajax({
             type: 'POST',
             data: {
-                "name": "teresa may5",
+                "name": "Dan Popescu",
                 "password": "parliament5",
-                "profession": "brexit killer5",
+                "profession": "Dev",
                 "id": 5
             },
             url: 'http://localhost:3001/users'
@@ -104,7 +106,7 @@ $(document).ready(function ($) {
         let ajxReq = $.ajax({
             type: 'PUT',
             data: {
-                "name": "Nume editat",
+                "name": "Nume editat 33333333",
                 "password": "parolaeditat",
                 "profession": "profesieeditat",
                 "id": 1
