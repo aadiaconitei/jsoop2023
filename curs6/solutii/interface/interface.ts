@@ -14,5 +14,7 @@ function showPerson(data: Person): Person {
   return data;
 }
 
-const obj = { name: "Eduard", age: 3, born: new Date("2020/03/06") };
+const obj:Person = { name: "Eduard", age: 3, born: new Date("2020/03/06") };
+// typeof(obj) //Object
+// typeof(data) //Person
 showPerson(obj);

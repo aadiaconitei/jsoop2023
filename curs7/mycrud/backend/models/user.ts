@@ -49,6 +49,7 @@ export const findOne = (userId: number, callback: Function) => {
 };
 // create user
 export const create = (user: User, callback: Function) => {
+
   const queryString =
     "INSERT INTO jsusers (nume, prenume, email, datanastere, telefon) VALUES (?, ?, ?, ?, ?)";
     console.log(user);
@@ -70,6 +71,7 @@ export const create = (user: User, callback: Function) => {
 
 // update user
 export const update = (user: User, callback: Function) => {
+  
   const queryString = `UPDATE jsusers SET nume=?, prenume=? WHERE id=?`;
 
   db.query(queryString, [user.nume, user.prenume, user.id], (err, result) => {

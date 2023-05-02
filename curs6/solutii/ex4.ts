@@ -12,8 +12,14 @@ class Employee implements Person1 {
     firstName: string;  
     lastName: string;  
     age:number;  
-    salary:number; 
-   
+    salary:number;
+     
+    constructor(firstN: string, lastN: string, getAge: number, salary:number) {  
+        this.firstName = firstN;  
+        this.lastName = lastN;  
+        this.age = getAge; 
+        this.salary = salary; 
+    }  
 
     setSalary(salary:number){
         this.salary = salary;
@@ -29,12 +35,7 @@ class Employee implements Person1 {
     GetAge() {  
         return this.age;  
     }  
-    constructor(firstN: string, lastN: string, getAge: number, salary:number) {  
-        this.firstName = firstN;  
-        this.lastName = lastN;  
-        this.age = getAge; 
-        this.salary = salary; 
-    }  
+    
     public getElevatorPitch(): string {
         throw new Error("Method not implemented.");
     }

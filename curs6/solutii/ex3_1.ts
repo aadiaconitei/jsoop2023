@@ -12,3 +12,4 @@ class StudentNou {
 
 let studentnou: StudentNou = new StudentNou(1, "JoeRoot");
 console.log(studentnou.display());
+

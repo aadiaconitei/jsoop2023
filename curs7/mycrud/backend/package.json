@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",
-  "nodemonConfig": { "ext": "js", "ignore": ["*.test.ts", "dist/*","node_modules/*"], "delay": "2" },
+  "nodemonConfig": {
+    "ext": "js",
+    "ignore": [
+      "*.test.ts",
+      "dist/*",
+      "node_modules/*"
+    ],
+    "delay": "2"
+  },
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/server.js",

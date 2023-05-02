@@ -1,13 +1,16 @@
 class Student2 {  
     public studCode: number;  
     protected studName: string;  
+    private nota: number;
     constructor(code: number, name: string){  
         this.studCode = code;  
-        this.studName = name;  
-        }  
+        this.studName = name;
+        this.nota = 10;
+    }  
 }  
 class Person extends Student2 {  
-    private department: string;  
+    private department: string; 
+   
   
     constructor(code: number, name: string, department: string) {  
         super(code, name);  

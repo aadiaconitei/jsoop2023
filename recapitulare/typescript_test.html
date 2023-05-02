@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>1. Scrieți o funcție care primeste ca parametru un numar n și returnează 
+        valoarea care sa află pe poziția n în șirul lui Fibonacci.    </p>
+        <code>
+        <pre>
+            Sir Fibonacci: 1, 1, 2, 3, 5, 8, 13, 21, 34 ... 
+            Date de intrare:
+            9
+            25
+            Date de ieșire:
+            34
+            75025
+        </pre>
+        </code>
+
+
+    <p>2. Scrieți o funcție care primeste 2 parametri de tip array și returnează 
+        un array format din reuniunea celor 2 parametri    </p>
+    <p>ex. https://www.educative.io/answers/how-to-find-the-union-of-two-arrays-in-javascript</p>
+        <code>
+        <pre>
+            Date de intrare:
+            [1, 2, 34, 45, 3], [3, 24, 2, 21]
+            ['orange', 'green', 'blue'], ['yellow', 'white', 'blue']
+            Date de ieșire:
+            [1,2,34,45,3,24,21]
+            [orange,green,blue,yellow,white]
+        </pre>
+        </code>
+    <p> 3. Ce afișează următorul cod:</p>
+        <code>
+            <pre>
+                type myType = number | string;
+
+                function afiseazaValoare(valoare: myType) {
+                console.log(valoare);
+                }
+
+                afiseazaValoare(123);
+                afiseazaValoare("abc");
+
+            </pre>
+        </code>
+    <p> 4. Ce afișează următorul cod:</p>
+    <code>
+        <pre>
+            interface Person {
+                name: string;
+                age: number;
+              }
+              
+              function greet(person: Person): string {
+                return `Hello, ${person.name}! You are ${person.age} years old.`;
+              }
+              
+              let john: Person = { name: 'Ion', age: 30 };
+              console.log(greet(john));
+        </pre>
+    </code>
+    <p> 5. Ce afișează următorul cod:</p>
+    <code>
+        <pre>
+            abstract class Forma {
+                constructor(public nume: string) {}
+                abstract calculeazaAria(): number;
+            }
+
+            interface Desen {
+                deseneaza(): void;
+            }
+            
+            class Cerc extends Forma implements Desen {
+                constructor(public raza: number) {
+                super("Cerc");
+                }
+            
+                calculeazaAria() {
+                return Math.PI * Math.pow(this.raza, 2);
+                }
+            
+                deseneaza() {
+                console.log(`Desenez un cerc cu raza ${this.raza}`);
+                }
+            }
+            const cerc = new Cerc(5);
+            console.log(`${cerc.nume} - Aria: ${cerc.calculeazaAria()}`);
+            cerc.deseneaza();
+  
+        </pre>
+    </code>
+</body>
+</html>

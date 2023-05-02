@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 1. Scrieți o clasă părinte Employee și o clasă copil Manager, astfel încât să
+        puteți rula următorul cod:
+
+    </p>
+    <code>
+    <pre>
+        
+        const ang = new Employee("Popescu");
+        ang.sayHello("Ionescu");
+    
+        const man = new Manager("Dan", "Dumitrescu");
+        man.sayHello("Ionescu");
+    </pre>
+    </code>
+
+    <p> 2. Ce afișează următorul cod:
+
+    </p>
+    <code>
+    <pre>
+        
+        
+    class Person {
+        say(name){
+            if(name){
+                this.#sayWithName(name);
+            }else{
+                this.#sayWithoutName();
+            }
+        }
+        #sayWithoutName(){
+            console.info("Hello");
+        }
+        #sayWithName(name){
+            console.info(`Hello ${name}`);
+        }
+    }
+
+    const pers = new Person();
+    pers.say("Dan");
+    pers.say();
+
+    </pre>
+    </code>
+    <p> 3. Ce afișează următorul cod:</p>
+    <code>
+    <pre>
+    class MathUtil {
+
+        static sum(...numbers) {
+            let total = 0;
+            for (const number of numbers) {
+                total += number;
+            }
+            return total;
+        }
+
+    }
+
+    const result = MathUtil.sum(1, 1, 1, 1, 1);
+    console.info(result);
+    </pre>
+    </code>
+    <p> 4. Ce afișează următorul cod:</p>
+    <code>
+    <pre>
+       
+        class ThirdPartyLibrary {
+            printText(text) {
+                console.log(text);
+            }
+        }
+
+       
+        class TextPrinter {
+            displayText(text) {}
+        }
+
+       
+        class TextPrinterAdapter extends TextPrinter {
+            constructor(thirdPartyLibrary) {
+                super();
+                this.thirdPartyLibrary = thirdPartyLibrary;
+            }
+
+            displayText(text) {
+                this.thirdPartyLibrary.printText(text);
+            }
+        }
+
+        
+        const text = "Hello, world!";
+        const thirdPartyLibrary = new ThirdPartyLibrary();
+        const textPrinter = new TextPrinterAdapter(thirdPartyLibrary);
+        textPrinter.displayText(text);
+    </pre>
+    </code>
+    <p> 5. Ce afișează următorul cod:</p>
+    <code>
+    <pre>
+
+        class SpaceObject {
+            constructor(name, size, color) {
+                this.name = name;
+                this.size = size;
+                this.color = color;
+            }
+
+            fly() {
+                console.log(`${this.name} is flying through space!`);
+            }
+        }
+
+        
+        class Star extends SpaceObject {
+            constructor(name, size, color, temperature) {
+                super(name, size, color);
+                this.temperature = temperature;
+            }
+
+            shine() {
+                console.log(`${this.name} is shining brightly at a temperature of ${this.temperature} Kelvin!`);
+            }
+        }
+
+        class Planet extends SpaceObject {
+            constructor(name, size, color, distanceFromSun) {
+                super(name, size, color);
+                this.distanceFromSun = distanceFromSun;
+            }
+
+            orbit() {
+                console.log(`${this.name} is orbiting the sun at a distance of ${this.distanceFromSun} million kilometers!`);
+            }
+        }
+
+ 
+        class SpaceObjectFactory {
+            createObject(type, name, size, color, extraParams) {
+                switch(type) {
+                    case 'star':
+                        return new Star(name, size, color, extraParams.temperature);
+                    case 'planet':
+                        return new Planet(name, size, color, extraParams.distanceFromSun);
+                    default:
+                        throw new Error(`Invalid space object type: ${type}`);
+                }
+            }
+        }
+
+
+        const factory = new SpaceObjectFactory();
+        const sun = factory.createObject('star', 'Sun', '109 times larger than Earth', 'yellow', { temperature: 5778 });
+        const earth = factory.createObject('planet', 'Earth', '12,742 km diameter', 'blue', { distanceFromSun: 149.6 });
+        sun.shine();
+        earth.orbit();
+    </pre>
+    </code>
+    <script>
+        // 1
+        class Employee {
+
+            constructor(firstName) {
+                this.firstName = firstName;
+            }
+
+            sayHello(name) {
+                console.info(`Salut ${name}, prenumele meu este ${this.firstName}`);
+            }
+        }
+
+        class Manager extends Employee {
+
+            constructor(firstName, lastName) {
+                super(firstName);
+                this.lastName = lastName;
+            }
+
+            sayHello(name) {
+                console.info(`Salut ${name}, sunt manager si numele meu este ${this.firstName} ${this.lastName}`);
+            }
+        }
+        const ang = new Employee("Popescu");
+        ang.sayHello("Ionescu");
+
+        const man = new Manager("Dan", "Dumitrescu");
+        man.sayHello("Ionescu");
+
+
+        //  2
+        class Person {
+            say(name) {
+                if (name) {
+                    this.#sayWithName(name);
+                } else {
+                    this.#sayWithoutName();
+                }
+            }
+            #sayWithoutName() {
+                console.info("Hello");
+            }
+            #sayWithName(name) {
+                console.info(`Hello ${name}`);
+            }
+        }
+
+        const pers = new Person();
+        pers.say("Dan");
+        pers.say();
+
+        // 3
+        class MathUtil {
+
+            static sum(...numbers) {
+                let total = 0;
+                for (const number of numbers) {
+                    total += number;
+                }
+                return total;
+            }
+
+        }
+
+        const result = MathUtil.sum(1, 1, 1, 1, 1);
+        console.info(result);
+
+        // 4
+        // Adaptee class
+        class ThirdPartyLibrary {
+            printText(text) {
+                console.log(text);
+            }
+        }
+
+        // Target interface
+        class TextPrinter {
+            displayText(text) { }
+        }
+
+        // Adapter class
+        class TextPrinterAdapter extends TextPrinter {
+            constructor(thirdPartyLibrary) {
+                super();
+                this.thirdPartyLibrary = thirdPartyLibrary;
+            }
+
+            displayText(text) {
+                this.thirdPartyLibrary.printText(text);
+            }
+        }
+
+        // Client code
+        const text = "Hello, world!";
+        const thirdPartyLibrary = new ThirdPartyLibrary();
+        const textPrinter = new TextPrinterAdapter(thirdPartyLibrary);
+        textPrinter.displayText(text);
+
+        // 5
+        // Define the interface for creating space objects
+        class SpaceObject {
+            constructor(name, size, color) {
+                this.name = name;
+                this.size = size;
+                this.color = color;
+            }
+
+            fly() {
+                console.log(`${this.name} is flying through space!`);
+            }
+        }
+
+        // Define the concrete classes that will be created by the factory
+        class Star extends SpaceObject {
+            constructor(name, size, color, temperature) {
+                super(name, size, color);
+                this.temperature = temperature;
+            }
+
+            shine() {
+                console.log(`${this.name} is shining brightly at a temperature of ${this.temperature} Kelvin!`);
+            }
+        }
+
+        class Planet extends SpaceObject {
+            constructor(name, size, color, distanceFromSun) {
+                super(name, size, color);
+                this.distanceFromSun = distanceFromSun;
+            }
+
+            orbit() {
+                console.log(`${this.name} is orbiting the sun at a distance of ${this.distanceFromSun} million kilometers!`);
+            }
+        }
+
+        // Define the factory that will create the concrete classes
+        class SpaceObjectFactory {
+            createObject(type, name, size, color, extraParams) {
+                switch (type) {
+                    case 'star':
+                        return new Star(name, size, color, extraParams.temperature);
+                    case 'planet':
+                        return new Planet(name, size, color, extraParams.distanceFromSun);
+                    default:
+                        throw new Error(`Invalid space object type: ${type}`);
+                }
+            }
+        }
+
+        // Create some space objects using the factory
+        const factory = new SpaceObjectFactory();
+        const sun = factory.createObject('star', 'Sun', '109 times larger than Earth', 'yellow', { temperature: 5778 });
+        const earth = factory.createObject('planet', 'Earth', '12,742 km diameter', 'blue', { distanceFromSun: 149.6 });
+        sun.shine();
+        earth.orbit();
+    </script>
+</body>
+
+</html>

@@ -43,7 +43,7 @@ $(document).ready(function ($) {
         //console.log(data);
         $('#example').dataTable({
             "paging": true,
-            "pageLength": 2,
+            "pageLength": 3,
             processing: true,
             serverSide: false,
             "data": data.data,
@@ -55,7 +55,7 @@ $(document).ready(function ($) {
                 { "data": "telefon" },
                 {
                     "data": "datanastere",
-                    render: $.fn.dataTable.render.moment('YYYY-MM-DDTHH:mm:ss.SSSSZ','YYYY-MM-DD' )
+                    render: $.fn.dataTable.render.moment('YYYY-MM-DDTHH:mm:ss.SSSSZ','DD-MM-YYYY' )
     
                 },
                 {
@@ -140,9 +140,9 @@ $(document).ready(function ($) {
             method = 'PUT';
             urlReq = "http://localhost:3002/users/" + idValue;
         }
-        else {
-            idValue
-        }
+        // else {
+        //     idValue
+        // }
         alert(method);
         alert(urlReq);
         $.ajax({
